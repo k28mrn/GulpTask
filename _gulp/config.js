@@ -32,7 +32,17 @@ module.exports = {
 		options: {
 			pretty: true
 		}
-	}
+	},
 
-
+	// 
+	// css
+	// 
+	css: {
+		src: [
+			`${SRC}assets/**/*.styl`,
+			`!${SRC}assets/**/_*.styl`,
+		],
+		watch_src: [`${SRC}assets/**/*.styl`],
+		dist: `${RELATIVE_PATH}${DIST}assets/`
+	},
 }
