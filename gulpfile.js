@@ -30,14 +30,41 @@ gulp.task('default', (done)=>{
 
 gulp.task('_dev', gulp.series(
 	gulp.parallel(
-		'pug:build'
-	)
+		'delete:dist',
+	),
+	gulp.parallel(
+		'copy:json',
+		'copy:plugin_css',
+		'images:copy',
+	),
+	gulp.parallel(
+		'styl:build',
+		'pug:build',
+		'plugin:js:build',
+	),
+	gulp.parallel(
+		'pug:watch',
+		'styl:watch',
+		'plugin:js:watch',
+		'json:watch',
+		'plugin_css:watch',
+	),
 ));
 
 
 
 gulp.task('_prd', gulp.series(
 	gulp.parallel(
-		'pug:build'
-	)
+		'delete:dist',
+	),
+	gulp.parallel(
+		'copy:json',
+		'copy:plugin_css',
+		'images:copy',
+	),
+	gulp.parallel(
+		'styl:build',
+		'pug:build',
+		'plugin:js:build',
+	),
 ));
