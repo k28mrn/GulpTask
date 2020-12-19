@@ -4,11 +4,17 @@ const gulp = require('gulp')
 const requireDir = require('require-dir')
 const childProcess = require('child_process')
 
-const config = require('./_gulp/config.js')
+const config = require('./config.js')
 const spawn = childProcess.spawn
 
-requireDir("./_gulp/tasks/")
+requireDir("./_gulp/")
 
+/**
+ * デフォルトタスク
+ * 
+ * npm start - 開発タスク
+ * npm run prd - 本番用ビルドタスク
+ */
 gulp.task('default', (done)=>{
 	let process = undefined
 	if (config.isPrd) {
@@ -28,6 +34,9 @@ gulp.task('default', (done)=>{
 	done();
 })
 
+/**
+ * 開発タスク
+ */
 gulp.task('_dev', gulp.series(
 	gulp.parallel(
 		'delete:dist',
@@ -41,6 +50,7 @@ gulp.task('_dev', gulp.series(
 		'styl:build',
 		'pug:build',
 		'plugin:js:build',
+		'webpack:build',
 	),
 	gulp.parallel(
 		'pug:watch',
@@ -48,11 +58,13 @@ gulp.task('_dev', gulp.series(
 		'plugin:js:watch',
 		'json:watch',
 		'plugin_css:watch',
+		'webpack:devServer',
 	),
 ));
 
-
-
+/**
+ * 本番用ビルドタスク
+ */
 gulp.task('_prd', gulp.series(
 	gulp.parallel(
 		'delete:dist',
@@ -66,5 +78,6 @@ gulp.task('_prd', gulp.series(
 		'styl:build',
 		'pug:build',
 		'plugin:js:build',
+		'webpack:build',
 	),
 ));

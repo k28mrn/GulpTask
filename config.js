@@ -21,6 +21,14 @@ module.exports = {
 	src: SRC,
 
 	/**
+	 * js
+	 */
+	js: {
+		dist: DIST,
+		serverName: "bs",
+	},
+	
+	/**
 	 * html
 	 */
 	html: {
@@ -48,7 +56,7 @@ module.exports = {
 	},
 
 	/**
-	 * css
+	 * images
 	 */
 	images: {
 		base: `${SRC}assets/images`,
