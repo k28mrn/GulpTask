@@ -10,7 +10,8 @@ const notify = require('gulp-notify')
 const sourcemaps = require('gulp-sourcemaps')
 const autoprefixer = require('autoprefixer')
 const cssnano = require('cssnano')
-const gulpif = require('gulp-if');
+const gulpif = require('gulp-if')
+const rename = require('gulp-rename')
 // const browser = require('browser-sync')
 const config = require('../config.js')
 
@@ -24,6 +25,7 @@ gulp.task('styl:build', (done)=>{
 		.pipe(stylus())
 		.pipe(postcss([autoprefixer(), cssnano()]))
 		.pipe(gulpif(!config.isPrd, sourcemaps.write()))
+		.pipe(rename({suffix: '.bundle'}))
 		.pipe(gulp.dest(config.css.dist));
 })
 

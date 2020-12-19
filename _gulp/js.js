@@ -12,7 +12,7 @@ const webpackConfig = require('../webpack.config.js')
  */
 gulp.task('webpack:build', (done)=>{
 	webpackStream(webpackConfig, webpack)
-		.pipe(gulp.dest(config.js.dist))
+		.pipe(gulp.dest(webpackConfig.output.path))
 	done()
 })
 
@@ -22,8 +22,8 @@ gulp.task('webpack:build', (done)=>{
 gulp.task('webpack:devServer', (done)=>{
 	const compiler = webpack(webpackConfig)
 	const server = new webpackDevServer(compiler, webpackConfig.devServer)
-	server.listen(3000, "localhost", (err)=>{
-		if (err) throw new util.PluginError("webpack-dev-server", err)
+	server.listen(3100, `localhost`, (err)=>{
+		if (err) throw new util.PluginError(`webpack-dev-server`, err)
 	})
 	done()
 })
