@@ -47,14 +47,16 @@ gulp.task('_dev', gulp.series(
 		'images:copy',
 	),
 	gulp.parallel(
-		'styl:build',
+		// 'styl:build',
+		'sass:build',
 		'pug:build',
 		'plugin:js:build',
 		'webpack:build',
 	),
 	gulp.parallel(
 		'pug:watch',
-		'styl:watch',
+		// 'styl:watch',
+		'sass:watch',
 		'plugin:js:watch',
 		'json:watch',
 		'plugin_css:watch',
@@ -75,7 +77,8 @@ gulp.task('_prd', gulp.series(
 		'images:copy',
 	),
 	gulp.parallel(
-		'styl:build',
+		// 'styl:build',
+		'sass:build',
 		'pug:build',
 		'plugin:js:build',
 		'webpack:build',

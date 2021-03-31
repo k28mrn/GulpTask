@@ -46,12 +46,21 @@ module.exports = {
 	/**
 	 * css
 	 */
-	css: {
+	stylus: {
 		src: [
 			`${SRC}assets/**/*.styl`,
 			`!${SRC}assets/**/_*.styl`,
 		],
 		watch_src: [`${SRC}assets/**/*.styl`],
+		dist: `${RELATIVE_PATH}${DIST}assets/`
+	},
+
+	sass: {
+		src: [
+			`${SRC}assets/**/*.scss`,
+			`!${SRC}assets/**/_*.scss`,
+		],
+		watch_src: [`${SRC}assets/**/*.scss`],
 		dist: `${RELATIVE_PATH}${DIST}assets/`
 	},
 
