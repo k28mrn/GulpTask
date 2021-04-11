@@ -16,6 +16,7 @@
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.12.10",
+    "@babel/plugin-proposal-class-properties": "^7.13.0",
     "@babel/preset-env": "^7.12.10",
     "autoprefixer": "^9.8.6",
     "babel-loader": "^8.2.2",
@@ -48,9 +49,7 @@
     "webpack-dev-server": "^3.11.0",
     "webpack-stream": "^6.1.1"
   },
-  "dependencies": {
-    "jquery": "^3.5.1"
-  },
+  "dependencies": {},
   "browserslist": [
     "last 2 versions",
     "Explorer 11",
