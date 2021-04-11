@@ -58,6 +58,7 @@ gulp.task('_dev', gulp.series(
 		// 'styl:watch',
 		'sass:watch',
 		'plugin:js:watch',
+		'images:watch',
 		'json:watch',
 		'plugin_css:watch',
 		'webpack:devServer',
