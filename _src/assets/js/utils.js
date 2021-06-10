@@ -268,4 +268,39 @@ export default class Utils{
 		while(num != (num = num.replace(/^(-?\d+)(\d{3})/, "$1,$2")));
 		return num;
 	}
+
+	/**
+	 * ボディーのスクロール固定
+	 */
+	static bodyFixedOn(){
+		const ua = window.navigator.userAgent.toLowerCase();
+		const isiOS = ua.indexOf('iphone') > -1 || ua.indexOf('ipad') > -1 || ua.indexOf('macintosh') > -1 && 'ontouchend' in document;
+		const body = document.querySelector('body');
+
+		if(isiOS){
+				scrollPosition = window.pageYOffset;
+				body.style.position = 'fixed';
+				body.style.top = `-${scrollPosition}px`;
+		}else {
+				body.style.overflow = 'hidden';
+		}
+	}
+
+	/**
+	 * ボディーのスクロール解除
+	 */
+	 static bodyFixedOff(){
+		const ua = window.navigator.userAgent.toLowerCase();
+		const isiOS = ua.indexOf('iphone') > -1 || ua.indexOf('ipad') > -1 || ua.indexOf('macintosh') > -1 && 'ontouchend' in document;
+		const body = document.querySelector('body');
+
+		if(isiOS){
+			const scrollPosition = parseFloat(body.style.top)
+			body.style.removeProperty('position');
+			body.style.removeProperty('top');
+			window.scrollTo(0, scrollPosition);
+		}else {
+			body.style.removeProperty('overflow');
+		}
+	}
 }
