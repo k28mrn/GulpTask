@@ -70,7 +70,9 @@ export default class Utils{
 			SCROLL_EVENT = 'DOMMouseScroll' + _prefix;
 		}
 		SCROLL_EVENT += " touchmove" + _prefix;
-		$(target).off(SCROLL_EVENT);
+		$(target).on(SCROLL_EVENT, (e)=>{
+			return e.preventDefault()
+		});
 	}
 
 	/**
