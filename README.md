@@ -3,26 +3,31 @@
 シンプルなweb開発環境
 
 ```
-node version: 14.15.1
+node : 14.15.1
+npm  : 6.14.8
+yarn : 1.22.10
 ```
 
 ## インストール
 
-```
+```sh
+# yarnをインストールしていない場合
+$ npm i -g yarn
+
 $ cd ./{project_folder}
-$ npm install
+$ yarn install
 ```
 
 ## 開発時コマンド
 
-```
+```sh
 $ cd ./{project_folder}
-$ npm start
+$ yarn start
 ```
 
 ## パブリッシュコマンド
 
-```
+```sh
 $ cd ./{project_folder}
-$ npm run prd
+$ yarn prd
 ```

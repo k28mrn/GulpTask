@@ -12,8 +12,9 @@
     "start": "gulp --env dev",
     "prd": "gulp --env prd"
   },
-  "author": "k28mrn",
-  "license": "ISC",
+  "author": "k28",
+  "license": "MIT",
+	"private": true,
   "devDependencies": {
     "@babel/core": "^7.12.10",
     "@babel/plugin-proposal-class-properties": "^7.13.0",
