@@ -5,15 +5,15 @@ block init
 	- var keywords = "";
 
 	//- OGP情報
-	- var site_url = "https://example.com";
-	- var og_title = title;
-	- var og_description = description;
-	- var og_type = "website";
-	- var og_imgPath = site_url + "/assets/images/og.png";
-	- var touch_icon = site_url + "/assets/images/apple-touch-icon.png";
-	- var favicon_path = "/assets/images/favicon";
-	- var twitter_account = "";
-	- var twitter_card = "summary_large_image";
+	- var siteUrl = "https://example.com";
+	- var ogTitle = title;
+	- var ogDescription = description;
+	- var ogType = "website";
+	- var ogImgPath = siteUrl + "/assets/images/og.png";
+	- var touchIcon = siteUrl + "/assets/images/apple-touch-icon.png";
+	- var faviconPath = "/assets/images/favicon";
+	- var twitterAccount = "";
+	- var twitterCard = "summary_large_image";
 
 	//- ファイルパス
 	- var dir = "./";
@@ -31,25 +31,25 @@ html(lang="ja")
 		title #{title}
 		meta(name='description', content=`${description}`)
 		meta(name='keywords', content=`${keywords}`)
-		//- link(rel="icon", href=`${favicon_path}.ico`)
-		//- link(rel="icon", type="image/png", href=`${favicon_path}.png`)
-		//- link(rel="apple-touch-icon" href=`${touch_icon}`)
+		//- link(rel="icon", href=`${faviconPath}.ico`)
+		//- link(rel="icon", type="image/png", href=`${faviconPath}.png`)
+		//- link(rel="apple-touch-icon" href=`${touchIcon}`)
 
 		//- OG情報
-		//- meta(property="og:type", content=`${og_type}`)
+		//- meta(property="og:type", content=`${ogType}`)
 		//- meta(property="og:site_name", content=`${title}`)
-		//- meta(property="og:url", content=`${site_url}`)
-		//- meta(property="og:image", content=`${og_imgPath}`)
-		//- meta(property="og:title", content=`${og_title}`)
-		//- meta(property="og:description", content=`${og_description}`)
+		//- meta(property="og:url", content=`${siteUrl}`)
+		//- meta(property="og:image", content=`${ogImgPath}`)
+		//- meta(property="og:title", content=`${ogTitle}`)
+		//- meta(property="og:description", content=`${ogDescription}`)
 
 		//- OG情報: Twitter
-		//- meta(name="twitter:card", content=`${twitter_card}`)
-		//- meta(name="twitter:site", content=`${site_url}`)
-		//- meta(name="twitter:creator", content=`${twitter_account}`)
+		//- meta(name="twitter:card", content=`${twitterCard}`)
+		//- meta(name="twitter:site", content=`${siteUrl}`)
+		//- meta(name="twitter:creator", content=`${twitterAccount}`)
 		//- meta(name="twitter:title", content=`${title}`)
-		//- meta(name="twitter:description", content=`${og_description}`)
-		//- meta(name="twitter:image", content=`${og_imgPath}`)
+		//- meta(name="twitter:description", content=`${ogDescription}`)
+		//- meta(name="twitter:image", content=`${ogImgPath}`)
 
 		
 		//- 
