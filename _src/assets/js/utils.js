@@ -1,7 +1,7 @@
 /**
  * Utils
  */
-export default class Utils{
+ export default class Utils{
 
 	/**
 	 * viewport情報を返す
@@ -117,24 +117,54 @@ export default class Utils{
 	 * 角度に変換
 	 * 
 	 * @param {number} radian - ラジアン
-	 * @return　{number} - 角度
+	 * @return {number} - 角度
 	 */
 	static angle(radian) {
 		return radian * (180 / Math.PI);
 	}
 
 	/**
+	 * 距離と角度から位置を求める
+	 * @param {number} x
+	 * @param {number} x
+	 * @param {number} distance
+	 * @param {number} radian
+	 */
+	static distanceToPosition(x, y, distance, radian) {
+		var x = x + distance * Math.cos( radian )
+		var y = y + distance * Math.sin( radian )
+
+		return {
+			x: x,
+			y: y,
+		}
+	}
+	/**
 	 * ２点間の距離
 	 * 
-	 * @param {number}　x1
-	 * @param {number}　y1
-	 * @param {number}　x2
-	 * @param {number}　y2
+	 * @param {number} x1
+	 * @param {number} y1
+	 * @param {number} x2
+	 * @param {number} y2
 	 */
 	static distance(x1, y1, x2, y2) {
 		var dx = x2 - x1;
 		var dy = y2 - y1;
 		return Math.sqrt(Math.pow(dx, 2) + Math.pow(dy, 2));
+	}
+
+	/**
+	 * 2点間の距離から角度を求める（ラジアン）
+	 * 
+	 * @param {number} x1
+	 * @param {number} y1
+	 * @param {number} x2
+	 * @param {number} y2
+	 */
+	static distanceRadian(x1, y1, x2, y2) {
+		var dx = x2 - x1;
+		var dy = y2 - y1;
+		return Math.atan2(dy, dx);
 	}
 
 	/**
@@ -194,20 +224,6 @@ export default class Utils{
 	}
 
 	/**
-	 * 2点間の距離から角度を求める（ラジアン）
-	 * 
-	 * @param {number}　x1
-	 * @param {number}　y1
-	 * @param {number}　x2
-	 * @param {number}　y2
-	 */
-	static distanceRadian(x1, y1, x2, y2) {
-		var dx = x2 - x1;
-		var dy = y2 - y1;
-		return Math.atan2(dy, dx);
-	}
-
-	/**
 	 * ランダムな数(float)
 	 * 
 	 * @param {number} min - 最小値(float)
@@ -230,13 +246,14 @@ export default class Utils{
 	static coverPosition(wrapWidth, wrapHeight, itemWidth, itemHeight) {
 		var wrapAspect = wrapWidth / wrapHeight;
 		var itemAspect = itemWidth / itemHeight;
-
+		var _width, _height
+		
 		if(itemAspect < wrapAspect){
-			var _width = wrapWidth;
-			var _height = wrapWidth / itemAspect;
+			_width = wrapWidth;
+			_height = wrapWidth / itemAspect;
 		} else {
-			var _width = wrapHeight * itemAspect;
-			var _height = wrapHeight;
+			_width = wrapHeight * itemAspect;
+			_height = wrapHeight;
 		}
 		
 		return {
@@ -280,7 +297,7 @@ export default class Utils{
 		const body = document.querySelector('body');
 
 		if(isiOS){
-				scrollPosition = window.pageYOffset;
+				const scrollPosition = window.pageYOffset;
 				body.style.position = 'fixed';
 				body.style.top = `-${scrollPosition}px`;
 		}else {
