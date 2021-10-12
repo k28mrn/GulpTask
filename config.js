@@ -68,11 +68,11 @@ module.exports = {
 	 * images
 	 */
 	images: {
-		base: `${SRC}assets/images`,
+		base: `${SRC}assets/img`,
 		src: [
-			`${RELATIVE_PATH}${SRC}assets/images/**/*`
+			`${RELATIVE_PATH}${SRC}assets/img/**/*`
 		],
-		dist: `${RELATIVE_PATH}${DIST}assets/images/`
+		dist: `${RELATIVE_PATH}${DIST}assets/img/`
 	},
 
 	/**

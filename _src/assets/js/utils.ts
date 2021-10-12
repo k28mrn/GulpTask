@@ -32,67 +32,67 @@
 	 * @param {number} val - 0埋めしたい値
 	 * @param {number} length - 桁数
 	 */
-	static zeroReplace(val, length) {
+	static zeroReplace(val: number, length: number): string {
 		return ('000000000' + (Math.ceil(val))).substr(-length);
 	}
 
-	/**
-	 * 画像リソース読み込み
-	 * 
-	 * @param {string} src - 画像パス
-	 * @param {string} alt
-	 * @return {object}
-	 */
-	static loadImage(src, alt="") {
-		var $d = $.Deferred();
-		var img = new Image();
-		img.onload = ()=>{
-			return $d.resolve(img);
-		}
-		img.src = src;
-		img.alt = alt;
-		return $d.promise();
-	}
+	// /**
+	//  * 画像リソース読み込み_
+	//  * 
+	//  * @param {string} src - 画像パス
+	//  * @param {string} alt
+	//  * @return {object}
+	//  */
+	// static loadImage(src, alt="") {
+	// 	var $d = $.Deferred();
+	// 	var img = new Image();
+	// 	img.onload = ()=>{
+	// 		return $d.resolve(img);
+	// 	}
+	// 	img.src = src;
+	// 	img.alt = alt;
+	// 	return $d.promise();
+	// }
 
-	/**
-	 * スクロール停止
-	 * 
-	 * @param {object} target - jQuery Object
-	 */
-	static noScroll(target) {
-		var _prefix = ".Utils";
-		var SCROLL_EVENT;
-		if('onwheel' in document){
-			SCROLL_EVENT = 'wheel' + _prefix
-		} else if ('onmousewheel' in document){
-			SCROLL_EVENT = 'mousewheel' + _prefix;
-		} else {
-			SCROLL_EVENT = 'DOMMouseScroll' + _prefix;
-		}
-		SCROLL_EVENT += " touchmove" + _prefix;
-		$(target).on(SCROLL_EVENT, (e)=>{
-			return e.preventDefault()
-		});
-	}
+	// /**
+	//  * スクロール停止
+	//  * 
+	//  * @param {object} target - jQuery Object
+	//  */
+	// static noScroll(target) {
+	// 	var _prefix = ".Utils";
+	// 	var SCROLL_EVENT;
+	// 	if('onwheel' in document){
+	// 		SCROLL_EVENT = 'wheel' + _prefix
+	// 	} else if ('onmousewheel' in document){
+	// 		SCROLL_EVENT = 'mousewheel' + _prefix;
+	// 	} else {
+	// 		SCROLL_EVENT = 'DOMMouseScroll' + _prefix;
+	// 	}
+	// 	SCROLL_EVENT += " touchmove" + _prefix;
+	// 	$(target).on(SCROLL_EVENT, (e)=>{
+	// 		return e.preventDefault()
+	// 	});
+	// }
 
-	/**
-	 * スクロール停止解除
-	 * 
-	 * @param {object} target - jQuery Object
-	 */
-	static noScrollCancel(target) {
-		var _prefix = ".Utils";
-		var SCROLL_EVENT;
-		if('onwheel' in document){
-			SCROLL_EVENT = 'wheel' + _prefix
-		} else if ('onmousewheel' in document){
-			SCROLL_EVENT = 'mousewheel' + _prefix;
-		} else {
-			SCROLL_EVENT = 'DOMMouseScroll' + _prefix;
-		}
-		SCROLL_EVENT += " touchmove" + _prefix;
-		$(target).off(SCROLL_EVENT);
-	}
+	// /**
+	//  * スクロール停止解除
+	//  * 
+	//  * @param {object} target - jQuery Object
+	//  */
+	// static noScrollCancel(target) {
+	// 	var _prefix = ".Utils";
+	// 	var SCROLL_EVENT;
+	// 	if('onwheel' in document){
+	// 		SCROLL_EVENT = 'wheel' + _prefix
+	// 	} else if ('onmousewheel' in document){
+	// 		SCROLL_EVENT = 'mousewheel' + _prefix;
+	// 	} else {
+	// 		SCROLL_EVENT = 'DOMMouseScroll' + _prefix;
+	// 	}
+	// 	SCROLL_EVENT += " touchmove" + _prefix;
+	// 	$(target).off(SCROLL_EVENT);
+	// }
 
 	// /**
 	// * PC / SP 判定
@@ -109,7 +109,7 @@
 	 * @param {number} degree - 角度
 	 * @return {number} - ラジアン
 	 */
-	static radian(degree) {
+	static radian(degree: number): number {
 		return degree * Math.PI / 180;
 	}
 
@@ -119,7 +119,7 @@
 	 * @param {number} radian - ラジアン
 	 * @return {number} - 角度
 	 */
-	static angle(radian) {
+	static angle(radian: number): number {
 		return radian * (180 / Math.PI);
 	}
 
@@ -130,7 +130,7 @@
 	 * @param {number} distance
 	 * @param {number} radian
 	 */
-	static distanceToPosition(x, y, distance, radian) {
+	static distanceToPosition(x: number, y: number, distance: number, radian: number): {x:number, y:number} {
 		var x = x + distance * Math.cos( radian )
 		var y = y + distance * Math.sin( radian )
 
@@ -147,7 +147,7 @@
 	 * @param {number} x2
 	 * @param {number} y2
 	 */
-	static distance(x1, y1, x2, y2) {
+	static distance(x1: number, y1: number, x2: number, y2: number) : number {
 		var dx = x2 - x1;
 		var dy = y2 - y1;
 		return Math.sqrt(Math.pow(dx, 2) + Math.pow(dy, 2));
@@ -161,7 +161,7 @@
 	 * @param {number} x2
 	 * @param {number} y2
 	 */
-	static distanceRadian(x1, y1, x2, y2) {
+	static distanceRadian(x1: number, y1: number, x2: number, y2: number): number {
 		var dx = x2 - x1;
 		var dy = y2 - y1;
 		return Math.atan2(dy, dx);
@@ -175,7 +175,7 @@
 	 * @param {number} max - 最小値
 	 * @return {number}
 	 */
-	static clamp(val, min, max) {
+	static clamp(val: number, min: number, max: number): number {
 		return Math.min(max, Math.max(val, min));
 	}
 	
@@ -191,7 +191,7 @@
 	 * @param {boolean} clamp - 最小値
 	 * @return {number}
 	 */
-	static clamp2(val, inputMin , inputMax , outputMin , outputMax , clamp=true ) {
+	static clamp2(val: number, inputMin: number , inputMax: number , outputMin: number , outputMax: number , clamp: boolean=true ): number {
 		let outVal = ((val - inputMin) / (inputMax - inputMin) * (outputMax - outputMin) + outputMin);
 		if(clamp){
 			if(outputMax < outputMin){
@@ -219,7 +219,7 @@
 	 * @param val - 実際の値
 	 * @returns 
 	 */
-	static lerp(start, end, val) {
+	static lerp(start: number, end: number, val: number): number {
 		return start + (end - start) * val
 	}
 
@@ -230,7 +230,7 @@
 	 * @param {number} max - 最大値(float)
 	 * @return {number} min(含む)からmax(含む)までのランダムな数(float)
 	 */
-	static random(min, max) {
+	static random(min: number, max: number): number {
 		return Math.random() * (max - min) + min;
 	}
 
@@ -243,7 +243,7 @@
 	 * @param {number} itemHeight - サイズ調整するオブジェクトのheight
 	 * @return {object} top, left, width, height
 	 */
-	static coverPosition(wrapWidth, wrapHeight, itemWidth, itemHeight) {
+	static coverPosition(wrapWidth: number, wrapHeight: number, itemWidth: number, itemHeight: number) {
 		var wrapAspect = wrapWidth / wrapHeight;
 		var itemAspect = itemWidth / itemHeight;
 		var _width, _height
@@ -267,9 +267,9 @@
 	/**
 	 * カンマをつける
 	 * @param {number} value - 数値
-	 * @return {number}
+	 * @return {string}
 	 */
-	static comma(value) {
+	static comma(value: number): string {
 		//https://web-designer.cman.jp/javascript_ref/keyboard/addcomma/
 
 		// 入力されたカンマを消去
@@ -291,7 +291,7 @@
 	/**
 	 * ボディーのスクロール固定
 	 */
-	static bodyFixedOn(){
+	static bodyFixedOn(): void {
 		const ua = window.navigator.userAgent.toLowerCase();
 		const isiOS = ua.indexOf('iphone') > -1 || ua.indexOf('ipad') > -1 || ua.indexOf('macintosh') > -1 && 'ontouchend' in document;
 		const body = document.querySelector('body');
@@ -308,7 +308,7 @@
 	/**
 	 * ボディーのスクロール解除
 	 */
-	 static bodyFixedOff(){
+	 static bodyFixedOff(): void{
 		const ua = window.navigator.userAgent.toLowerCase();
 		const isiOS = ua.indexOf('iphone') > -1 || ua.indexOf('ipad') > -1 || ua.indexOf('macintosh') > -1 && 'ontouchend' in document;
 		const body = document.querySelector('body');

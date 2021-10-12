@@ -8,17 +8,17 @@ const config = require('./config.js')
 module.exports = {
 	mode: (config.isPrd) ? 'production' : 'development',
 	entry: {
-		app: `${config.relativePath}${config.src}assets/js/app.js`,
+		app: `${config.relativePath}${config.src}assets/js/app.ts`,
 	},
 	output: { 
 		filename: '[name].bundle.js',
 		path: path.resolve(__dirname, `${config.dist}assets/js`),
 	},
-	resolve: { extensions: ['.js', '.json'] },
+	resolve: { extensions: ['.js', '.ts', '.json'] },
 	module: {
 		rules: [
 			{
-				test: /\.js$/,
+				test: /\.ts$/,
 				use: [{
 					loader: "babel-loader",
 					options: {
