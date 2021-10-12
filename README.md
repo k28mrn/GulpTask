@@ -22,7 +22,7 @@ $ yarn install
 
 ```sh
 $ cd ./{project_folder}
-$ yarn start
+$ yarn dev
 ```
 
 ## パブリッシュコマンド
