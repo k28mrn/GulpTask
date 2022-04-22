@@ -1,17 +1,17 @@
 "use strict";
 
-const minimist = require('minimist')
+const minimist = require('minimist');
 
-const option = minimist(process.argv.slice(2), {})
-const CURRENT				= process.cwd()
-const RELATIVE_PATH	= "./"
-const DIST					= "public/"
-const SRC						= "_src/"
-const DOCS					= "docs/"
+const option = minimist(process.argv.slice(2), {});
+const CURRENT = process.cwd();
+const RELATIVE_PATH = "./";
+const DIST = "public/";
+const SRC = "_src/";
+const DOCS = "docs/";
 
 module.exports = {
 	isPrd: (option.env == 'prd') ? true : false,
-	
+
 	/**
 	 * common
 	 */
@@ -27,7 +27,7 @@ module.exports = {
 		dist: DIST,
 		serverName: "bs",
 	},
-	
+
 	/**
 	 * html
 	 */
@@ -98,7 +98,7 @@ module.exports = {
 		json: {
 			base: `${SRC}assets/json`,
 			src: `${RELATIVE_PATH}${SRC}assets/json/**`,
-			dist: `${RELATIVE_PATH}${DIST}assets/js/`,
+			dist: `${RELATIVE_PATH}${DIST}assets/json/`,
 		},
 		plugin_css: {
 			base: `${SRC}assets/plugin/css`,
@@ -113,4 +113,4 @@ module.exports = {
 	delete: {
 		dist: `${RELATIVE_PATH}${DIST}`
 	},
-}
+};
